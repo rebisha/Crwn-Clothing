@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import "./form.scss";
 
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: ""
     };
   }
 
   handleChange = event => {
     const input = event.target.value;
     this.setState({
-      value: input,
+      value: input
     });
   };
 
@@ -20,6 +21,7 @@ class Form extends Component {
 
     return (
       <form>
+        <label className="formLabel">Hello World!!</label>
         <input type="text" value={value} onChange={this.handleChange} />
       </form>
     );
