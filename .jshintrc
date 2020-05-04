@@ -19,7 +19,8 @@
   "plusplus": false,
   "regexp": true,
   "shadow": false,
-  "strict": false,
+  "strict": true,
+  "moz": true,
   "scripturl": false,
   "supernew": false,
   "undef": true

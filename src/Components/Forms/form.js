@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./form.scss";
 
 class Form extends Component {
   constructor(props) {
@@ -21,7 +20,6 @@ class Form extends Component {
 
     return (
       <form>
-        <label className="formLabel">Hello World!!</label>
         <input type="text" value={value} onChange={this.handleChange} />
       </form>
     );
