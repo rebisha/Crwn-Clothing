@@ -1,5 +1,13 @@
 import React from "react";
-import Form from "./Components/Forms/form";
+import Homepage from "./Components/Homepage/Homepage";
 
-const App = () => <Form />;
+import "./app.scss";
+
+const App = () => {
+  return (
+    <div className="container">
+      <Homepage />
+    </div>
+  );
+};
 export default App;
