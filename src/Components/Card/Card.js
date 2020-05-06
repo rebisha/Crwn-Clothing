@@ -1,10 +1,14 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
+import { string, object } from "prop-types";
 import "./card.scss";
 
-// eslint-disable-next-line react/prop-types
-const Card = ({ title, imageUrl, size }) => {
+const Card = ({ title, imageUrl, size, linkUrl, match, history }) => {
   return (
-    <div className={`${size} menu-item`}>
+    <div
+      className={`${size} menu-item`}
+      onClick={() => history.push(`${match.url}${linkUrl}`)}
+    >
       <div
         className="background-image"
         style={{
@@ -19,4 +23,20 @@ const Card = ({ title, imageUrl, size }) => {
   );
 };
 
-export default Card;
+Card.propTypes = {
+  title: string.isRequired,
+  imageUrl: string.isRequired,
+  match: object,
+  history: object,
+  linkUrl: string,
+  size: string
+};
+
+Card.defaultProps = {
+  match: {},
+  history: {},
+  linkUrl: "home",
+  size: "large"
+};
+
+export default withRouter(Card);
