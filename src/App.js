@@ -19,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/hats" component={HatsPage} />
+          <Route path="/" component={HatsPage} />
         </Switch>
       </BrowserRouter>
     </div>

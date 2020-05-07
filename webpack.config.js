@@ -16,11 +16,9 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader"
-          }
-        ]
+        use: {
+          loader: "html-loader"
+        }
       },
       {
         test: /\.s(a|c)ss$/,
@@ -35,6 +33,12 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(png|svg|jpe?g|gif)$/,
+        use: {
+          loader: "url-loader"
+        }
       }
     ]
   },
