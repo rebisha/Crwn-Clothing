@@ -1,6 +1,8 @@
+// global modules
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { string, object } from "prop-types";
+// styles
 import "./card.scss";
 
 const Card = ({ title, imageUrl, size, linkUrl, match, history }) => {

@@ -1,25 +1,19 @@
+// global modules
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-import Homepage from "./Components/Homepage/Homepage";
-
+// componets
+import HomePage from "./Pages/HomePage/HomePage";
+import ShopPage from "./Pages/ShopPage/ShopPage";
+// styles
 import "./app.scss";
-
-const HatsPage = () => {
-  return (
-    <div>
-      <h1>Hats Page</h1>
-    </div>
-  );
-};
 
 function App() {
   return (
     <div className="container">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route path="/" component={HatsPage} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
         </Switch>
       </BrowserRouter>
     </div>

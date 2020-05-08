@@ -1,6 +1,10 @@
+// global modules
 import React, { Component } from "react";
+// components
 import Card from "../Card/Card";
-import DataModel from "../../data/sections";
+// data modules
+import SECTIONS_DATA from "../../data/sections";
+// styles
 import "./directory.scss";
 
 class Directory extends Component {
@@ -11,7 +15,7 @@ class Directory extends Component {
   render() {
     return (
       <div className="directory-menu">
-        {DataModel.map(({ id, ...sectionProps }) => {
+        {SECTIONS_DATA.map(({ id, ...sectionProps }) => {
           return <Card key={id} {...sectionProps} />;
         })}
       </div>

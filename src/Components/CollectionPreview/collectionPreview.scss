@@ -1,0 +1,17 @@
+@import "../../assets/styles/functions";
+
+.collection-preview {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: units(30px);
+
+    .title {
+        font-size: units(28px);
+        margin-bottom: units(25px);
+    }
+
+    .preview {
+        display: flex;
+        justify-content: space-between;
+    }
+}
