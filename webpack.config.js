@@ -37,8 +37,30 @@ module.exports = {
       {
         test: /\.(png|svg|jpe?g|gif)$/,
         use: {
-          loader: "url-loader"
+          loader: "url-loader",
+          options: {
+            limit: 8192,
+            name: "[name]-[hash].[ext]"
+          }
         }
+      },
+      {
+        test: /\.inline.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true // true outputs JSX tags
+            }
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack", "url-loader"]
       }
     ]
   },

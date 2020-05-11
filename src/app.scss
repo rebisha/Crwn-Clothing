@@ -5,3 +5,8 @@ body {
     font-family: $font-family;
     padding: units(20px 60px);
 }
+
+a {
+    color: $black;
+    text-decoration: none;
+}

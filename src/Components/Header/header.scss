@@ -1,0 +1,29 @@
+@import "../../assets/styles/functions";
+@import "../../assets/styles/variables";
+
+.header {
+    height: units(70px);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: units(25px);
+    align-items: center;
+
+    .logo-container {
+        height: auto;
+        width: auto;
+        padding: units(25px);
+    }
+
+    .options {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .option {
+            padding: units(10px 15px);
+        }
+    }
+}
