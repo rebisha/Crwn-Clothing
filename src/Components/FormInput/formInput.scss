@@ -1,0 +1,52 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/functions";
+
+.input-wrapper {
+    position: relative;
+    margin: units(40px 0);
+
+    .form-input {
+        background: none;
+        background-color: white;
+        color: $dark-grey;
+        font-size: units(18px);
+        padding: units(10px 10px 10px 5px);
+        display: block;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        border-bottom: units(1px) solid $dark-grey;
+        margin: units(25px 0);
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus~.form-input-label {
+            top: units(-20px);
+            font-size: units(12px);
+            color: $black;
+        }
+    }
+
+    input[type='password'] {
+        letter-spacing: 0.3em;
+    }
+
+    .form-input-label {
+        color: $light-grey;
+        font-size: units(16px);
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: units(5px);
+        top: units(10px);
+        transition: 300ms ease all;
+
+        &.shrink {
+            top: units(-20px);
+            font-size: units(12px);
+            color: $black;
+        }
+    }
+}

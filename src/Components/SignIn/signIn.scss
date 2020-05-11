@@ -1,0 +1,10 @@
+@import "../../assets/styles/functions";
+
+.sign-in {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        margin: units(10px 0);
+    }
+}

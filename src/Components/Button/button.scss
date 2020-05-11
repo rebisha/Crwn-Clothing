@@ -1,0 +1,25 @@
+@import "../../assets/styles/functions";
+@import "../../assets/styles/variables";
+
+.custom-button {
+    min-width: units(165px);
+    width: auto;
+    height: units(50px);
+    letter-spacing: 0.5px;
+    line-height: units(50px);
+    padding: units(0 35px 0 35px);
+    font-size: units(15px);
+    background-color: $black;
+    color: $white;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed';
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $white;
+        color: $black;
+        border: units(1px) solid $black;
+    }
+}
