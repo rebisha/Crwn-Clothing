@@ -22,4 +22,14 @@
         color: $black;
         border: units(1px) solid $black;
     }
+
+    &.google-sign-in {
+        background-color: $blue;
+        color: $white;
+
+        &:hover {
+            background-color: $dark-blue;
+            border: none;
+        }
+    }
 }

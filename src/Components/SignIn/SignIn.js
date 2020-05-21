@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // components
 import FormInput from "../FormInput/FormInput";
 import Button from "../Button/Button";
+import { signInWithGoogle } from "../../Firebase/FirebaseUtil";
 // styles
 import "./signIn.scss";
 
@@ -56,7 +57,12 @@ class SignIn extends Component {
             handleChange={this.handleChange}
           />
 
-          <Button type="submit">Sign In</Button>
+          <div className="button-wrapper">
+            <Button type="submit">Sign In</Button>
+            <Button onClick={signInWithGoogle} isGoogleSignIn>
+              Sign in with Google
+            </Button>
+          </div>
         </form>
       </div>
     );

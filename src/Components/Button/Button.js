@@ -1,19 +1,27 @@
 // global modules
 import React from "react";
-import { string } from "prop-types";
+import { string, boolean } from "prop-types";
 // styles
 import "./button.scss";
 
-const Button = ({ children, ...buttonProps }) => {
+const Button = ({ children, isGoogleSignIn, ...buttonProps }) => {
   return (
-    <button className="custom-button" {...buttonProps}>
+    <button
+      className={`${isGoogleSignIn ? "google-sign-in" : ""} custom-button`}
+      {...buttonProps}
+    >
       {children}
     </button>
   );
 };
 
 Button.propTypes = {
-  children: string.isRequired
+  children: string.isRequired,
+  isGoogleSignIn: boolean
+};
+
+Button.defaultProps = {
+  isGoogleSignIn: false
 };
 
 export default Button;
