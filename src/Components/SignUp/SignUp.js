@@ -63,7 +63,7 @@ class SignUp extends Component {
         <h2 className="title">I do not have a account</h2>
         <span>Sign up with your email and password</span>
 
-        <form className="sign-up-form">
+        <form className="sign-up-form" onClick={this.handleSubmit}>
           <FormInput
             type="text"
             name="displayName"
@@ -100,9 +100,7 @@ class SignUp extends Component {
             required
           />
 
-          <Button type="submit" onClick={this.handleSubmit}>
-            Sign Up
-          </Button>
+          <Button type="submit">Sign Up</Button>
         </form>
       </div>
     );
