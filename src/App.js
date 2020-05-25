@@ -6,7 +6,7 @@ import Header from "./Components/Header/Header";
 import HomePage from "./Pages/HomePage/HomePage";
 import ShopPage from "./Pages/ShopPage/ShopPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
-import { defaultAuth } from "./Firebase/FirebaseUtil";
+import { auth, createUserProfileDocument } from "./Firebase/FirebaseUtil";
 // styles
 import "./app.scss";
 
@@ -22,10 +22,22 @@ class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = defaultAuth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
 
-      console.log("@@user", user);
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          });
+
+          console.log("@@currentUser", this.state);
+        });
+      }
+      this.setState({ currentUser: userAuth });
     });
   }
 

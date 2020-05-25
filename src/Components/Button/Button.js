@@ -1,6 +1,6 @@
 // global modules
 import React from "react";
-import { string, boolean } from "prop-types";
+import { string, bool } from "prop-types";
 // styles
 import "./button.scss";
 
@@ -17,7 +17,7 @@ const Button = ({ children, isGoogleSignIn, ...buttonProps }) => {
 
 Button.propTypes = {
   children: string.isRequired,
-  isGoogleSignIn: boolean
+  isGoogleSignIn: bool
 };
 
 Button.defaultProps = {

@@ -1,0 +1,11 @@
+@import "../../assets/styles/functions";
+
+.sign-up {
+    display: flex;
+    flex-direction: column;
+    width: units(380px);
+
+    .title {
+        margin: units(10px 0);
+    }
+}

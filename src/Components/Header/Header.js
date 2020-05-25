@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { object } from "prop-types";
 // components
 import Crown from "../Icons/Crown";
-import { defaultAuth } from "../../Firebase/FirebaseUtil";
+import { auth } from "../../Firebase/FirebaseUtil";
 // style
 import "./header.scss";
 
@@ -22,7 +22,7 @@ const Header = ({ currentUser }) => {
           CONTACT
         </Link>
         {currentUser ? (
-          <div className="option" onClick={() => defaultAuth.signOut()}>
+          <div className="option" onClick={() => auth.signOut()}>
             SIGN OUT
           </div>
         ) : (
