@@ -1,8 +1,8 @@
 // global modules
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { func } from "prop-types";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { func, object } from "prop-types";
 // components
 import Header from "./Components/Header/Header";
 import HomePage from "./Pages/HomePage/HomePage";
@@ -44,24 +44,33 @@ class App extends Component {
     return (
       <div className="container">
         <Header />
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/shop" component={ShopPage} />
-            <Route path="/login" component={LoginPage} />
-          </Switch>
-        </BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route
+            exact
+            path="/login"
+            render={() =>
+              this.props.currentUser ? <Redirect to="/" /> : <LoginPage />
+            }
+          />
+        </Switch>
       </div>
     );
   }
 }
 
 App.propTypes = {
-  setCurrentUser: func
+  setCurrentUser: func,
+  currentUser: object
 };
+
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
 
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
