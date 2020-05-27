@@ -2,14 +2,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { object } from "prop-types";
+import { object, bool } from "prop-types";
 // components
 import Crown from "../Icons/Crown";
+import Cart from "../Cart/Cart";
+import CartDropdown from "../CartDropdown/CartDropdown";
 import { auth } from "../../Firebase/FirebaseUtil";
 // style
 import "./header.scss";
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -31,21 +33,21 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
+        <Cart />
       </div>
+      {hidden ? null : <CartDropdown />}
     </div>
   );
 };
 
 Header.propTypes = {
-  currentUser: object
+  currentUser: object,
+  hidden: bool
 };
 
-Header.defaultProps = {
-  currentUser: {}
-};
-
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser,
+  hidden
 });
 
 export default connect(mapStateToProps)(Header);

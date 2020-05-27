@@ -1,0 +1,28 @@
+@import "../../assets/styles/functions";
+@import "../../assets/styles/variables";
+
+.cart-dropdown {
+    position: absolute;
+    width: units(240px);
+    height: units(340px);
+    display: flex;
+    flex-direction: column;
+    padding: units(20px);
+    border: units(1px) solid $black;
+    background-color: $white;
+    top: units(90px);
+    right: units(60px);
+    z-index: 5;
+
+    .cart-items {
+        height: units(240px);
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+    }
+
+    button {
+        margin-top: auto;
+        text-transform: uppercase;
+    }
+}

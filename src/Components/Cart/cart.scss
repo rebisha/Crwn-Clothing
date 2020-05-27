@@ -1,0 +1,18 @@
+@import "../../assets/styles/functions";
+
+.cart-wrapper {
+    width: units(45px);
+    height: units(45px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    .item-count {
+        position: absolute;
+        font-size: units(10px);
+        font-weight: bold;
+        bottom: units(20px);
+    }
+}
