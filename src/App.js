@@ -8,7 +8,9 @@ import Header from "./Components/Header/Header";
 import HomePage from "./Pages/HomePage/HomePage";
 import ShopPage from "./Pages/ShopPage/ShopPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
+// firebase
 import { auth, createUserProfileDocument } from "./Firebase/FirebaseUtil";
+// redux
 import { setCurrentUser } from "./Redux/User/action";
 // styles
 import "./app.scss";

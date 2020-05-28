@@ -7,6 +7,7 @@ import { object, bool } from "prop-types";
 import Crown from "../Icons/Crown";
 import Cart from "../Cart/Cart";
 import CartDropdown from "../CartDropdown/CartDropdown";
+// firebase
 import { auth } from "../../Firebase/FirebaseUtil";
 // style
 import "./header.scss";

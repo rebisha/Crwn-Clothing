@@ -1,10 +1,16 @@
 // global modules
 import React from "react";
-import { string, number } from "prop-types";
+import { func, object } from "prop-types";
+import { connect } from "react-redux";
+// components
+import Button from "../Button/Button";
+// redux
+import { addItem } from "../../Redux/Cart/action";
 // styles
 import "./collectionItem.scss";
 
-const CollectionItem = ({ id, name, imageUrl, price }) => {
+const CollectionItem = ({ item, addItem }) => {
+  const { id, name, price, imageUrl } = item;
   return (
     <div className="collection-item">
       <div
@@ -17,15 +23,20 @@ const CollectionItem = ({ id, name, imageUrl, price }) => {
         <span className="name">{name}</span>
         <span className="price">${price}</span>
       </div>
+      <Button onClick={() => addItem(item)} inverted>
+        Add to cart
+      </Button>
     </div>
   );
 };
 
 CollectionItem.propTypes = {
-  name: string.isRequired,
-  imageUrl: string.isRequired,
-  price: number.isRequired,
-  id: number
+  addItem: func,
+  item: object
 };
 
-export default CollectionItem;
+const mapDispatchToProps = dispatch => ({
+  addItem: item => dispatch(addItem(item))
+});
+
+export default connect(null, mapDispatchToProps)(CollectionItem);
