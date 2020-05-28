@@ -7,7 +7,7 @@
     height: units(340px);
     display: flex;
     flex-direction: column;
-    padding: units(20px);
+    padding: units(20px 12px);
     border: units(1px) solid $black;
     background-color: $white;
     top: units(90px);
@@ -18,7 +18,13 @@
         height: units(240px);
         display: flex;
         flex-direction: column;
-        overflow: scroll;
+        overflow: auto;
+    }
+
+    ::-webkit-scrollbar {
+        width: units(5px);
+        border-radius: units(5px);
+        background: $dark-grey;
     }
 
     button {
