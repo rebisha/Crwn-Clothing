@@ -5,6 +5,8 @@ import { array } from "prop-types";
 // components
 import Button from "../Button/Button";
 import CartItem from "../CartItem/CartItem";
+// redux
+import { selectCartItems } from "../../Redux/Cart/selectors";
 // styles
 import "./cartDropdown.scss";
 
@@ -25,8 +27,8 @@ CartDropdown.propTypes = {
   cartItems: array
 };
 
-const mapStateToProps = ({ cart: { cartItems } }) => ({
-  cartItems
+const mapStateToProps = state => ({
+  cartItems: selectCartItems(state)
 });
 
 export default connect(mapStateToProps)(CartDropdown);

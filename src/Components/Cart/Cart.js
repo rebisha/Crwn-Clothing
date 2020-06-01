@@ -1,9 +1,11 @@
 // global modules
 import React from "react";
 import { connect } from "react-redux";
-import { func, object } from "prop-types";
+import { func, number } from "prop-types";
 // components
 import CartIcon from "../Icons/CartIcon";
+// redux
+import { selectCartItemsCount } from "../../Redux/Cart/selectors";
 import { toggleCartHidden } from "../../Redux/Cart/action";
 // styles
 import "./cart.scss";
@@ -19,18 +21,15 @@ const Cart = ({ toggleCartHidden, itemCount }) => {
 
 Cart.propTypes = {
   toggleCartHidden: func,
-  itemCount: object
+  itemCount: number
 };
 
 const mapDispatchToProps = dispatch => ({
   toggleCartHidden: () => dispatch(toggleCartHidden())
 });
 
-const mapStateToProps = ({ cart: { cartItems } }) => ({
-  itemCount: cartItems.reduce(
-    (accumulatedQuantity, cartItem) => accumulatedQuantity + cartItem.quantity,
-    0
-  )
+const mapStateToProps = state => ({
+  itemCount: selectCartItemsCount(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
