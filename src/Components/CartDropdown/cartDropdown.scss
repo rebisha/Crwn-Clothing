@@ -14,6 +14,11 @@
     right: units(60px);
     z-index: 5;
 
+    .empty-message {
+        font-size: units(18px);
+        margin: units(50px) auto;
+    }
+
     .cart-items {
         height: units(240px);
         display: flex;

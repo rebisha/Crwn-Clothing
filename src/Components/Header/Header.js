@@ -3,12 +3,16 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { object, bool } from "prop-types";
+import { createStructuredSelector } from "reselect";
 // components
 import Crown from "../Icons/Crown";
 import Cart from "../Cart/Cart";
 import CartDropdown from "../CartDropdown/CartDropdown";
 // firebase
 import { auth } from "../../Firebase/FirebaseUtil";
+// redux
+import { selectCurrentUser } from "../../Redux/User/selectors";
+import { selectCartHidden } from "../../Redux/Cart/selectors";
 // style
 import "./header.scss";
 
@@ -46,9 +50,9 @@ Header.propTypes = {
   hidden: bool
 };
 
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-  currentUser,
-  hidden
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden
 });
 
 export default connect(mapStateToProps)(Header);
