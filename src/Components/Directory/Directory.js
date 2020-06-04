@@ -1,26 +1,31 @@
 // global modules
-import React, { Component } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { array } from "prop-types";
 // components
 import Card from "../Card/Card";
-// data modules
-import SECTIONS_DATA from "../../data/sections";
+// redux
+import { selectDirectorySections } from "../../Redux/Directory/selector";
 // styles
 import "./directory.scss";
 
-class Directory extends Component {
-  constructor() {
-    super();
-  }
+const Directory = ({ sections }) => {
+  return (
+    <div className="directory-menu">
+      {sections.map(({ id, ...sectionProps }) => {
+        return <Card key={id} {...sectionProps} />;
+      })}
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div className="directory-menu">
-        {SECTIONS_DATA.map(({ id, ...sectionProps }) => {
-          return <Card key={id} {...sectionProps} />;
-        })}
-      </div>
-    );
-  }
-}
+Directory.propTypes = {
+  sections: array
+};
 
-export default Directory;
+const mapStateToProps = createStructuredSelector({
+  sections: selectDirectorySections
+});
+
+export default connect(mapStateToProps)(Directory);

@@ -1,30 +1,22 @@
 // global modules
-import React, { Component } from "react";
-// data module
-import SHOP_DATA from "../../data/shop";
+import React from "react";
+import { Route } from "react-router-dom";
+import { object } from "prop-types";
 //components
-import CollectionPreview from "../../Components/CollectionPreview/CollectionPreview";
+import CollectionOverview from "../../Components/CollectionOverview/CollectionOverview";
+import CategoryPage from "../CategoryPage/CategoryPage";
 
-class ShopPage extends Component {
-  constructor(props) {
-    super(props);
+const ShopPage = ({ match }) => {
+  return (
+    <div>
+      <Route exact path={`${match.path}`} component={CollectionOverview} />
+      <Route path={`${match.path}/:category`} component={CategoryPage} />
+    </div>
+  );
+};
 
-    this.state = {
-      collections: SHOP_DATA
-    };
-  }
-
-  render() {
-    const { collections } = this.state;
-
-    return (
-      <div className="container">
-        {collections.map(({ id, ...collectionProps }) => (
-          <CollectionPreview key={id} {...collectionProps} />
-        ))}
-      </div>
-    );
-  }
-}
+ShopPage.propTypes = {
+  match: object
+};
 
 export default ShopPage;

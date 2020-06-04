@@ -64,6 +64,13 @@ module.exports = {
       }
     ]
   },
+  /* Adding publicPath: '/', to the output block of webpack config.
+     It will tell html to always access main.js from '/' folder and the compiled html
+     will be <script type="text/javascript" src="/main.js"></script>.
+     That's exactly what we're looking for nested Route. */
+  output: {
+    publicPath: "/"
+  },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
