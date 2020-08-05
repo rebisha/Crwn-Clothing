@@ -10,9 +10,19 @@ import { selectCollection } from "../../Redux/Shop/selector";
 import "./CollectionPage.scss";
 
 const CollectionPage = ({ collection }) => {
-  console.log("@@ match", collection);
+  const { title, items } = collection;
 
-  return <h1>Collection Page</h1>;
+  return (
+    <div className="collection-page">
+      <h2 className="title">{title}</h2>
+
+      <div className="items">
+        {items.map(item => (
+          <CollectionItem key={item.id} item={item} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 CollectionPage.propTypes = {
